@@ -2,6 +2,8 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -130,10 +132,19 @@ namespace ClinicManagement.Controllers
         }
 
         //
-        // GET: /Account/AddNewUser
+        // GET: /Manage/AddNewUser
         public ActionResult AddNewUser()
         {
-            return View();
+            UserViewModel model = new UserViewModel();
+            IEnumerable<RoleType> roleTypes = Enum.GetValues(typeof(RoleType)).Cast<RoleType>();
+
+            model.RolesList = from role in roleTypes
+                              select new SelectListItem
+                              {
+                                  Text = role.ToString(),
+                                  Value = ((int)role).ToString()
+                              };
+            return View(model);
         }
 
         //
@@ -396,6 +407,13 @@ namespace ClinicManagement.Controllers
             RemoveLoginSuccess,
             RemovePhoneSuccess,
             Error
+        }
+
+        public enum RoleType
+        {
+            Administrator = 0,
+            Doctor = 1,
+            Both = 2
         }
 
         #endregion
