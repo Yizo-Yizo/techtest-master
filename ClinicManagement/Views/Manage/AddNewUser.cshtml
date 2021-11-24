@@ -3,12 +3,11 @@
     ViewBag.Title = "Add New User";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("AddNewUser", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("AddNewUser", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Add user.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
@@ -26,17 +25,40 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Role, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.Role, Model.RolesList )
+            @Html.DropDownListFor(m => m.Role, Model.RolesList)
         </div>
     </div>
     <div class="form-group">
+        @Html.Label("Password", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <table>
+                <tr>
+                    <td>Click on button to Generate Random Strong Password :</td>
+                    <td><input id="btnpwd" type="submit" value="Generate Password" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@ViewBag.password</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+}
+@using (Html.BeginForm("NavigateToUserPage", "Home", FormMethod.Post, new { id = "userPage", @class = "btn-default" }))
+{
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Add" />
+            <input type="submit" onclick="location.href = 'javascript:document.getElementById(userPage).submit()';" class="btn btn-default" value="Add" />
         </div>
     </div>
 }
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
+
+
 

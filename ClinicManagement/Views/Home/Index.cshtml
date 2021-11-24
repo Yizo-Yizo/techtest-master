@@ -38,7 +38,7 @@
             <p class="count_bottom"><i class="green activeaccounts"> </i> Active Accounts</p>
         </div>
     </div>
-    @using (Html.BeginForm("Add", "Manage", FormMethod.Post, new { id = "addUser", @class = "btn-block" }))
+    @using (Html.BeginForm("NavigateToAddNewUser", "Manage", FormMethod.Post, new { id = "addUser", @class = "btn-block" }))
      {
         <button type="submit" onclick="location.href = 'javascript:document.getElementById(addUser).submit()';" class="btn btn-dark btn-lg btn-block">Add</button>
      }

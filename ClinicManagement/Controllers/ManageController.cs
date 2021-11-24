@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ClinicManagement.Controllers
 {
@@ -144,13 +145,27 @@ namespace ClinicManagement.Controllers
                                   Text = role.ToString(),
                                   Value = ((int)role).ToString()
                               };
+
+            string password = Membership.GeneratePassword(8, 1); // Generating password with 8 characters with one special character
+            ViewBag.password = password;
+
             return View(model);
         }
 
         //
+        // Auto Generate Password
+        /*[HttpPost]
+        public ActionResult AutoGeneratePassword()
+        {
+            string password = Membership.GeneratePassword(8, 1); 
+            ViewBag.password = password;
+            return View("AddNewUser");
+        }*/
+
+        //
         // POST: /Manage/AddNewUser
         [HttpPost]
-        public ActionResult Add()
+        public ActionResult NavigateToAddNewUser()
         {
             return RedirectToAction("AddNewUser", "Manage");
         }

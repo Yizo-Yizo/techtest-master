@@ -95,5 +95,10 @@ namespace ClinicManagement.Controllers
 
             return View();
         }
+
+        public ActionResult NavigateToUserPage()
+        {
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
