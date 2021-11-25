@@ -37,5 +37,7 @@ namespace ClinicManagement.Persistence
             //modelBuilder.Configurations.Add(new PatientStatusConfiguration());
             base.OnModelCreating(modelBuilder);
         }
+
+        //public System.Data.Entity.DbSet<ClinicManagement.Core.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

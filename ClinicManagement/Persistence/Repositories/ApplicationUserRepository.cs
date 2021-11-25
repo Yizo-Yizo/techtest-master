@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using ClinicManagement.Core.Dto;
 using ClinicManagement.Core.Models;
@@ -36,5 +37,10 @@ namespace ClinicManagement.Persistence.Repositories
             return _context.Users.Find(id);
         }
 
+        public IEnumerable<ApplicationUser> GetApplicationUsers()
+        {
+            return _context.Users.Include(c => c.Email);
+            
+        }
     }
 }

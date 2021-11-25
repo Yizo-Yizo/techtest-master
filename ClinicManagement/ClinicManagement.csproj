@@ -244,7 +244,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\ApplicationUsersController.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
+    <Compile Include="Core\Dto\ApplicationUserDto.cs" />
+    <Compile Include="Core\Models\ApplicationUser.cs" />
     <Compile Include="Core\ViewModel\AppointmentSearchVM.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
@@ -303,7 +306,6 @@
     </Compile>
     <Compile Include="Core\ViewModel\AccountViewModels.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
-    <Compile Include="Core\Models\ApplicationUser.cs" />
     <Compile Include="Core\Models\Doctor.cs" />
     <Compile Include="Core\Models\Attendance.cs" />
     <Compile Include="Core\ViewModel\ManageViewModels.cs" />
@@ -1117,6 +1119,11 @@
     <Content Include="Views\Attendances\_AttendancePartial.cshtml" />
     <Content Include="Views\Doctors\DoctorProfile.cshtml" />
     <Content Include="Views\Manage\AddNewUser.cshtml" />
+    <Content Include="Views\ApplicationUsers\Create.cshtml" />
+    <Content Include="Views\ApplicationUsers\Delete.cshtml" />
+    <Content Include="Views\ApplicationUsers\Details.cshtml" />
+    <Content Include="Views\ApplicationUsers\Edit.cshtml" />
+    <Content Include="Views\ApplicationUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
