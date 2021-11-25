@@ -1,4 +1,5 @@
-﻿using ClinicManagement.Core.ViewModel;
+﻿using ClinicManagement.Core.Models;
+using ClinicManagement.Core.ViewModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -150,6 +151,29 @@ namespace ClinicManagement.Controllers
             ViewBag.password = password;
 
             return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddNewUser(UserViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                IEnumerable<RoleType> roleTypes = Enum.GetValues(typeof(RoleType)).Cast<RoleType>();
+
+                model.RolesList = model.RolesList = from role in roleTypes
+                                                    select new SelectListItem
+                                                    {
+                                                        Text = role.ToString(),
+                                                        Value = ((int)role).ToString()
+                                                    };
+                return View(model);
+            }
+            var roleName = new Specialization()
+            {
+                //I am not sure which table to save the data to 
+            };
+            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -426,9 +450,9 @@ namespace ClinicManagement.Controllers
 
         public enum RoleType
         {
-            Administrator = 0,
-            Doctor = 1,
-            Both = 2
+            Administrator,
+            Doctor,
+            Both
         }
 
         #endregion

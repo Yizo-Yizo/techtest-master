@@ -47,11 +47,11 @@ namespace ClinicManagement.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Create(int id)
+        public ActionResult Create()
         {
             var viewModel = new AppointmentFormViewModel
             {
-                Patient = id,
+                //Patient = id,
                 Doctors = _unitOfWork.Doctors.GetAvailableDoctors(),
 
                 Heading = "New Appointment"

@@ -3,7 +3,7 @@
      ViewBag.Title = Model.Heading;
 }
 <link href="~/Content/gridDoctor.css" rel="stylesheet" />
-@using (Html.BeginForm("_Create", "Appointments", FormMethod.Post, new { @class = "form-horizontal form-label-left", autocomplete = "off" }))
+@using (Html.BeginForm("Create", "Appointments", FormMethod.Post, new { @class = "form-horizontal form-label-left", autocomplete = "off" }))
 {
 
     @Html.ValidationSummary(true)
@@ -49,6 +49,13 @@
                     <br />
                     <span class="section">Appointment </span>
                     @ViewBag.message
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Patient ID<span class="required">*</span></label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            @Html.TextBoxFor(m => m.Patient, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Patient)
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Date<span class="required">*</span></label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
