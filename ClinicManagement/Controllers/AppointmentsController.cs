@@ -36,6 +36,17 @@ namespace ClinicManagement.Controllers
         //    return View(viewModel);
         //}
 
+        //
+        // GET: /Appointments/Create
+        [AllowAnonymous]
+        public ActionResult _Create()
+        {
+            AppointmentFormViewModel viewModel = new AppointmentFormViewModel();
+            viewModel.Doctors = _unitOfWork.Doctors.GetAvailableDoctors();
+
+            return View(viewModel);
+        }
+
         public ActionResult Create(int id)
         {
             var viewModel = new AppointmentFormViewModel

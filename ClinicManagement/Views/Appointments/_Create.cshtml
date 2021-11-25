@@ -1,9 +1,9 @@
 ﻿@model ClinicManagement.Core.ViewModel.AppointmentFormViewModel
 @{
-    ViewBag.Title = Model.Heading;
+     ViewBag.Title = Model.Heading;
 }
 <link href="~/Content/gridDoctor.css" rel="stylesheet" />
-@using (Html.BeginForm("Create", "Appointments", FormMethod.Post, new { @class = "form-horizontal form-label-left", autocomplete = "off" }))
+@using (Html.BeginForm("_Create", "Appointments", FormMethod.Post, new { @class = "form-horizontal form-label-left", autocomplete = "off" }))
 {
 
     @Html.ValidationSummary(true)

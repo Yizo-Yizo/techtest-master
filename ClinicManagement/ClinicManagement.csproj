@@ -1100,7 +1100,7 @@
     <Content Include="Views\Doctors\Edit.cshtml" />
     <Content Include="Views\Shared\_LayoutOut.cshtml" />
     <Content Include="Views\Patients\Details.cshtml" />
-    <Content Include="Views\Appointments\Create.cshtml" />
+    <Content Include="Views\Appointments\_Create.cshtml" />
     <Content Include="Views\Reports\Attandences.cshtml" />
     <Content Include="Views\Appointments\Index.cshtml" />
     <Content Include="Views\Shared\Patients.cshtml" />
